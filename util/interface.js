@@ -97,7 +97,7 @@ const fieldToDefinition = (field, isInput) => {
   let interfaceName = resolveInterfaceName(field.type);
   let fieldDef;
   let isNotNull = field.type.kind === 'NON_NULL'
-  if (!isNotNull) {
+  if (!isNotNull && field.name !== 'edges') {
     fieldDef = `${field.name}?: ${interfaceName}`;
   } else {
     fieldDef = `${field.name}: ${interfaceName}`;
